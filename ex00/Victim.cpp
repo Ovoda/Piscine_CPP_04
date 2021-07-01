@@ -51,6 +51,11 @@ void	Victim::getPolymorphed( void ) const {
 	std::cout << _name << " has been turned into a cute little sheep!" << std::endl;
 }
 
+std::ostream &	Victim::print( std::ostream & o ) const {
+	o << *this;
+	return (o);
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */

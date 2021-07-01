@@ -1,18 +1,18 @@
-#include "Peon.hpp"
+#include "Innocent.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Peon::Peon( void ) {
-	std::cout << "Zog zog" << std::endl;
+Innocent::Innocent( void ) {
+	std::cout << "Goz Goz" << std::endl;
 }
 
-Peon::Peon( std::string const name ) : Victim(name) {
-	std::cout << "Zog zog" << std::endl;
+Innocent::Innocent( std::string const name ) : Victim(name) {
+	std::cout << "Goz Goz" << std::endl;
 }
 
-Peon::Peon( const Peon & src )
+Innocent::Innocent( const Innocent & src )
 {
 	*this = src;
 }
@@ -22,8 +22,8 @@ Peon::Peon( const Peon & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Peon::~Peon() {
-	std::cout << "Bleuark..." << std::endl;
+Innocent::~Innocent() {
+	std::cout << "Plouf..." << std::endl;
 }
 
 
@@ -31,15 +31,17 @@ Peon::~Peon() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Peon &				Peon::operator=( Peon const & rhs )
+Innocent &				Innocent::operator=( Innocent const & rhs )
 {
 	if ( this != &rhs )
 		setName(rhs.getName());
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Peon const & i ) {
-	return (i.print(o));
+std::ostream &			operator<<( std::ostream & o, Innocent const & i )
+{
+	i.print( o );
+	return o;
 }
 
 
@@ -47,8 +49,8 @@ std::ostream &			operator<<( std::ostream & o, Peon const & i ) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Peon::getPolymorphed( void ) const {
-	std::cout << _name << " has been turned into a pink pony!" << std::endl;
+void	Innocent::getPolymorphed( void ) const {
+	std::cout << _name << " has been turned into a beautiful butterfly!" << std::endl;
 }
 
 /*

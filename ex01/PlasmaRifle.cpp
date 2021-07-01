@@ -1,19 +1,16 @@
-#include "Peon.hpp"
+#include "PlasmaRifle.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Peon::Peon( void ) {
-	std::cout << "Zog zog" << std::endl;
+PlasmaRifle::PlasmaRifle( void ) {
+	AWeapon::setName("Plasma Rifle");
+	AWeapon::setDamage(21);
+	AWeapon::setAPCost(5);
 }
 
-Peon::Peon( std::string const name ) : Victim(name) {
-	std::cout << "Zog zog" << std::endl;
-}
-
-Peon::Peon( const Peon & src )
-{
+PlasmaRifle::PlasmaRifle( const PlasmaRifle & src ) {
 	*this = src;
 }
 
@@ -22,8 +19,7 @@ Peon::Peon( const Peon & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Peon::~Peon() {
-	std::cout << "Bleuark..." << std::endl;
+PlasmaRifle::~PlasmaRifle() {
 }
 
 
@@ -31,14 +27,12 @@ Peon::~Peon() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Peon &				Peon::operator=( Peon const & rhs )
-{
-	if ( this != &rhs )
-		setName(rhs.getName());
+PlasmaRifle &				PlasmaRifle::operator=( PlasmaRifle const & rhs ) {
+	this->AWeapon::operator=(rhs);
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Peon const & i ) {
+std::ostream &			operator<<( std::ostream & o, PlasmaRifle const & i ) {
 	return (i.print(o));
 }
 
@@ -47,8 +41,8 @@ std::ostream &			operator<<( std::ostream & o, Peon const & i ) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Peon::getPolymorphed( void ) const {
-	std::cout << _name << " has been turned into a pink pony!" << std::endl;
+void	PlasmaRifle::attack( void ) const {
+	std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }
 
 /*

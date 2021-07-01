@@ -11,7 +11,7 @@ class Victim
 
 		Victim( std::string const name );
 		Victim( Victim const & src );
-		~Victim();
+		virtual ~Victim();
 
 		Victim &		operator=( Victim const & rhs );
 
@@ -19,6 +19,7 @@ class Victim
 		std::string	getName( void ) const ;
 		
 		virtual void		getPolymorphed( void ) const;
+		std::ostream &		print( std::ostream & o ) const;
 
 	protected:
 		Victim( void );

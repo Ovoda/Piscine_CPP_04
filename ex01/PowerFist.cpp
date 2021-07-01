@@ -1,19 +1,16 @@
-#include "Peon.hpp"
+#include "PowerFist.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Peon::Peon( void ) {
-	std::cout << "Zog zog" << std::endl;
+PowerFist::PowerFist( void ) {
+	AWeapon::setName("Power Fist");
+	AWeapon::setDamage(50);
+	AWeapon::setAPCost(8);
 }
 
-Peon::Peon( std::string const name ) : Victim(name) {
-	std::cout << "Zog zog" << std::endl;
-}
-
-Peon::Peon( const Peon & src )
-{
+PowerFist::PowerFist( const PowerFist & src ) {
 	*this = src;
 }
 
@@ -22,8 +19,7 @@ Peon::Peon( const Peon & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Peon::~Peon() {
-	std::cout << "Bleuark..." << std::endl;
+PowerFist::~PowerFist() {
 }
 
 
@@ -31,14 +27,12 @@ Peon::~Peon() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Peon &				Peon::operator=( Peon const & rhs )
-{
-	if ( this != &rhs )
-		setName(rhs.getName());
+PowerFist &				PowerFist::operator=( PowerFist const & rhs ) {
+	this->AWeapon::operator=(rhs);
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, Peon const & i ) {
+std::ostream &			operator<<( std::ostream & o, PowerFist const & i ) {
 	return (i.print(o));
 }
 
@@ -47,8 +41,8 @@ std::ostream &			operator<<( std::ostream & o, Peon const & i ) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Peon::getPolymorphed( void ) const {
-	std::cout << _name << " has been turned into a pink pony!" << std::endl;
+void	PowerFist::attack( void ) const {
+	std::cout << "* pschhh... SBAM! *" << std::endl;
 }
 
 /*

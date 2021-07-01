@@ -8,10 +8,13 @@ RM		= rm -rf
 SRCS_PATH	=	./
 OBJS_PATH	=	objs/
 INC			= -I./
-SRCS		=	Sorcerer.cpp		\
-				Innocent.cpp		\
-				Victim.cpp			\
-				Peon.cpp			\
+SRCS		=	AWeapon.cpp			\
+				PlasmaRifle.cpp		\
+				SuperMutant.cpp		\
+				RadScorpion.cpp		\
+				PowerFist.cpp		\
+				Character.cpp		\
+				Enemy.cpp			\
 				main.cpp			\
 
 OBJS		= $(addprefix $(OBJS_PATH),$(SRCS:.cpp=.o))
