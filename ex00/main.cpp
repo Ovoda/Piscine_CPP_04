@@ -14,8 +14,9 @@ int main( void )
     robert.polymorph(joe);
     robert.polymorph(jax);
 
-    Peon *a = new Peon("a");
+    Victim *a = new Peon("a");
     std::cout << *a;
     delete a;
+    std::cout << std::endl;
     return 0;
 }
