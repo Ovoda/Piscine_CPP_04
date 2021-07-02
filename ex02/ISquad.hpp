@@ -1,0 +1,21 @@
+#ifndef ISQUAD_HPP
+#define ISQUAD_HPP
+
+#include <iostream>
+#include <string>
+#include "ISpaceMarine.hpp"
+
+class ISquad
+{
+	public:
+		ISquad( void ) {};
+		ISquad( ISquad const & src ) { *this = src; };
+		virtual ~ISquad() {};
+		virtual int getCount() const = 0;
+		virtual ISpaceMarine *getUnit(int) const = 0;
+		virtual int push(ISpaceMarine *) = 0;
+};
+
+std::ostream &operator<<(std::ostream &o, ISquad const &i);
+
+#endif /* ********************************************************** ISQUAD_H */
