@@ -11,6 +11,7 @@ class Character : public ICharacter
 
 	public:
 		// Constructors
+		Character( void );
 		Character( std::string const & name );
 		Character(Character const &src);
 
@@ -20,6 +21,8 @@ class Character : public ICharacter
 		//Accessors
 		std::string const &getName( void ) const;
 		unsigned int	getIndex( void ) const;
+		AMateria		*cloneItem( unsigned int const index ) const ;
+		AMateria		*getItem( unsigned int const index ) const ;
 
 		// Overloads
 		Character &operator=(Character const &rhs);
@@ -31,7 +34,6 @@ class Character : public ICharacter
 
 
 	private:
-		Character( void );
 		AMateria *_inventory[4];
 		unsigned int	_index;
 		std::string		_name;
