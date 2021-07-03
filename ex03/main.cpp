@@ -37,13 +37,17 @@ int main(void)
     std::cout << "    ----------------------------------" << std::endl
               << std::endl;
 
-    ICharacter *copy = new Character;
-    copy = me;
-    me->unequip(1);
+    Character main("main");
+    Character copy("copy");
+
+    main.equip(tmp);
+    copy = main;
+    main.unequip(0);
+
     std::cout << "___ Using Materia on Bob (0, 1, 42) [COPY] ___" << std::endl;
-    copy->use(0, *bob);
-    copy->use(1, *bob);
-    copy->use(42, *bob);
+    copy.use(0, *bob);
+    copy.use(1, *bob);
+    copy.use(42, *bob);
     std::cout << "    ----------------------------------" << std::endl
               << std::endl;
 
