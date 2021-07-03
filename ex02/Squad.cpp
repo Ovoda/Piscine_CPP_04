@@ -4,9 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Squad::Squad(void)
-{
-	_squad[0] = NULL;
+Squad::Squad(void) : _squad(0), _count(0) {
 }
 
 Squad::Squad(const Squad &src) {
@@ -20,7 +18,7 @@ Squad::Squad(const Squad &src) {
 Squad::~Squad(void)
 {
 	int i = 0;
-	while (_squad[i] != NULL)
+	while (i < _count)
 	{
 		delete _squad[i];
 		i++;
@@ -46,7 +44,7 @@ Squad &Squad::operator=(Squad const &rhs)
 std::ostream &operator<<(std::ostream &o, Squad const &i)
 {
 	int x = 0;
-	while (i.getUnit(x) != NULL)
+	while (x < i.getCount())
 		o << "Unit[" << x << "] = " << std::endl;
 	return o;
 }
@@ -55,27 +53,30 @@ std::ostream &operator<<(std::ostream &o, Squad const &i)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-int Squad::getCount(void) const
-{
-	int i = 0;
-	while (_squad[i] != NULL)
-		i++;
-	return (i);
+int Squad::getCount(void) const {
+	return (_count);
 }
 
 int Squad::push(ISpaceMarine *unit)
 {
+	ISpaceMarine ** new_squad = new ISpaceMarine*[_count + 1];
 	int i = 0;
-	while (_squad[i] != NULL)
+	while (i < _count)
+	{
+		new_squad[i] = _squad[i];
 		i++;
-	_squad[i] = unit;
-	_squad[i + 1] = NULL;
+	}
+	std::cout << "i = " << i << std::endl;
+	new_squad[i] = unit;
+	_count += 1;
+	delete [] _squad;
+	_squad = new_squad;
 	return (i);
 }
 
 ISpaceMarine *Squad::getUnit(int index) const
 {
-	if (_squad[index] != NULL)
+	if (index >= 0 && index < _count)
 		return (_squad[index]);
 	return (NULL);
 }

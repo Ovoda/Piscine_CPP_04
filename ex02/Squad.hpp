@@ -19,7 +19,8 @@ class Squad : public ISquad
 		Squad &			operator=( Squad const & rhs );
 
 	private:
-		ISpaceMarine * _squad[];
+		ISpaceMarine ** _squad;
+		int				_count;
 
 };
 

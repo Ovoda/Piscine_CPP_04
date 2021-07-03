@@ -8,8 +8,6 @@
 class ISquad
 {
 	public:
-		ISquad( void ) {};
-		ISquad( ISquad const & src ) { *this = src; };
 		virtual ~ISquad() {};
 		virtual int getCount() const = 0;
 		virtual ISpaceMarine *getUnit(int) const = 0;
