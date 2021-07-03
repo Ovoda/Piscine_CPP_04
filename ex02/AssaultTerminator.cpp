@@ -37,7 +37,6 @@ AssaultTerminator &				AssaultTerminator::operator=( AssaultTerminator const & r
 
 ISpaceMarine *AssaultTerminator::clone( void ) const {
 	ISpaceMarine *copy = new AssaultTerminator;
-	std::cout << "addr=" << copy << std::endl;
 	return (copy);
 }
 

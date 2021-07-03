@@ -9,19 +9,21 @@ class TacticalMarine : public ISpaceMarine
 {
 
 	public:
-
+		// Constructors
 		TacticalMarine( void );
 		TacticalMarine( TacticalMarine const & src );
+
+		// Destructor
 		~TacticalMarine();
 
-		ISpaceMarine *clone() const;
+		// Assignation operator overload
+		TacticalMarine &		operator=( TacticalMarine const & rhs );
+
+		// Methods
+		ISpaceMarine *clone( void ) const;
 		void battleCry( void ) const;
 		void rangedAttack( void ) const;
 		void meleeAttack( void ) const;
-	//	TacticalMarine &		operator=( TacticalMarine const & rhs );
-
-	private:
-
 };
 
 #endif /* ************************************************** TACTICALMARINE_H */

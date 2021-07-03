@@ -9,19 +9,21 @@ class AssaultTerminator : public ISpaceMarine
 {
 
 	public:
-
+		// Constructors
 		AssaultTerminator( void );
 		AssaultTerminator( AssaultTerminator const & src );
+		
+		// Destructor
 		~AssaultTerminator();
+		
+		// Assignation operator overload
+		AssaultTerminator &		operator=( AssaultTerminator const & rhs );
 
-		ISpaceMarine *clone() const;
+		// Methods
+		ISpaceMarine *clone( void ) const;
 		void battleCry( void ) const;
 		void rangedAttack( void ) const;
 		void meleeAttack( void ) const;
-		AssaultTerminator &		operator=( AssaultTerminator const & rhs );
-
-	private:
-
 };
 
 #endif /* ************************************************** ASSAULTTERMINATOR_H */

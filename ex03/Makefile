@@ -1,4 +1,4 @@
-NAME	= space_squad
+NAME	= bocal_fantasy
 
 CXX		= clang++
 CXXFLAGS = -g -Wall -Wextra -Werror -std=c++98
@@ -8,9 +8,11 @@ RM		= rm -rf
 SRCS_PATH	=	./
 OBJS_PATH	=	objs/
 INC			= -I./
-SRCS		=	Squad.cpp				\
-				TacticalMarine.cpp		\
-				AssaultTerminator.cpp	\
+SRCS		=	Ice.cpp					\
+				Cure.cpp				\
+				MateriaSource.cpp		\
+				Character.cpp			\
+				AMateria.cpp			\
 				main.cpp				\
 
 OBJS		= $(addprefix $(OBJS_PATH),$(SRCS:.cpp=.o))

@@ -1,15 +1,15 @@
-#include "ISquad.hpp"
+#include "Ice.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-ISquad::ISquad()
-{
+Ice::Ice( void ) {
+	_type = "ice";
 }
 
-ISquad::ISquad( const ISquad & src )
-{
+Ice::Ice( const Ice & src ) {
+	*this = src;
 }
 
 
@@ -17,8 +17,7 @@ ISquad::ISquad( const ISquad & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ISquad::~ISquad()
-{
+Ice::~Ice() {
 }
 
 
@@ -26,26 +25,29 @@ ISquad::~ISquad()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ISquad &				ISquad::operator=( ISquad const & rhs )
+Ice &				Ice::operator=( Ice const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		_type = rhs.getType();
+		_xp = rhs.getXP();
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, ISquad const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
+AMateria	*Ice::clone( void ) const {
+	AMateria *copy = new Ice(*this);
+	return (copy);
+}
+
+void		Ice::use( ICharacter &target ) {
+	std::cout << "* Shoots a bolt of ice at " << target.getName() << " *" << std::endl;
+	AMateria::use(target);
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

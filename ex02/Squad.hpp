@@ -9,14 +9,22 @@ class Squad : public ISquad
 {
 
 	public:
-
+		// Constructors
 		Squad( void );
-		Squad( Squad const & src ); 
+		Squad( Squad const & src );
+
+		// Destructor
 		~Squad();
-		int 			getCount( void ) const;
-		int 			push( ISpaceMarine * unit );
-		ISpaceMarine 	*getUnit( int ) const;
+
+		// Assignation operator overload 
 		Squad &			operator=( Squad const & rhs );
+
+		// Accessors
+		int 			getCount( void ) const;
+		ISpaceMarine 	*getUnit( int ) const;
+
+		// Methods
+		int 			push( ISpaceMarine * unit );
 
 	private:
 		ISpaceMarine ** _squad;

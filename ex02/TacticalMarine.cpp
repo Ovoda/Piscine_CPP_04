@@ -26,11 +26,11 @@ TacticalMarine::~TacticalMarine( void ) {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-// TacticalMarine &				TacticalMarine::operator=( TacticalMarine const & rhs )
-// {
-// 	(void) rhs;
-// 	return *this;
-// }
+TacticalMarine &				TacticalMarine::operator=( TacticalMarine const & rhs )
+{
+	(void) rhs;
+	return *this;
+}
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -38,7 +38,6 @@ TacticalMarine::~TacticalMarine( void ) {
 
 ISpaceMarine *TacticalMarine::clone( void ) const {
 	ISpaceMarine *copy = new TacticalMarine;
-	std::cout << "addr=" << copy << std::endl;
 	return (copy);
 }
 
