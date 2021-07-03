@@ -23,6 +23,7 @@ Squad::~Squad(void)
 		delete _squad[i];
 		i++;
 	}
+	delete [] _squad;
 }
 
 /*
@@ -32,12 +33,11 @@ Squad::~Squad(void)
 Squad &Squad::operator=(Squad const &rhs)
 {
 	int i = 0;
-	while (i < rhs.getCount())
+	while (i < _count)
 	{
 		this->push(rhs.getUnit(i)->clone());
 		i++;
 	}
-	_squad[i] = NULL;
 	return *this;
 }
 
@@ -66,7 +66,6 @@ int Squad::push(ISpaceMarine *unit)
 		new_squad[i] = _squad[i];
 		i++;
 	}
-	std::cout << "i = " << i << std::endl;
 	new_squad[i] = unit;
 	_count += 1;
 	delete [] _squad;

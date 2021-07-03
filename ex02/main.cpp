@@ -24,11 +24,14 @@ int main()
         ISpaceMarine *jim = new AssaultTerminator;
 
         Squad squad;
-
         squad.push(bob);
         squad.push(jim);
-        // for (int i = 0; i < squad.getCount(); ++i)
-        //     squad.getUnit(i)->battleCry();
+        for (int i = 0; i < squad.getCount(); ++i)
+            std::cout << squad.getUnit(i) << std::endl;
+
+        Squad copy(squad);
+        for (int i = 0; i < copy.getCount(); ++i)
+            std::cout << copy.getUnit(i) << std::endl;
     }
     return 0;
 }
