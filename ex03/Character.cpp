@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Character::Character(void) : _index(0)
+Character::Character(void) : _index(0), _copy(false)
 {
 	_inventory[0] = 0;
 	_inventory[1] = 0;
@@ -12,7 +12,7 @@ Character::Character(void) : _index(0)
 	_inventory[3] = 0;
 }
 
-Character::Character(std::string const &name) : _index(0), _name(name)
+Character::Character(std::string const &name) : _index(0), _name(name), _copy(false)
 {
 	_inventory[0] = 0;
 	_inventory[1] = 0;
@@ -31,6 +31,15 @@ Character::Character(const Character &src)
 
 Character::~Character()
 {
+	unsigned int i = 0;
+	if (_copy == true)
+	{
+		while (i < 4 && _inventory[i] != 0)
+		{
+			delete _inventory[i];
+			i++;
+		}
+	}
 }
 
 /*
@@ -41,17 +50,17 @@ Character &Character::operator=(Character const &rhs)
 {
 	if (this != &rhs)
 	{
-		std::cout << "bonjour" << std::endl;
+		_copy = true;
 		for (unsigned int i = 0; i < 4; i++)
-			delete rhs.getItem(i);
-		_index = rhs.getIndex();
+			delete _inventory[i];
 		this->_name = rhs.getName();
 		for (unsigned int i = 0; i < 4; i++)
 		{
 			if (rhs.getItem(i) != 0)
-				_inventory[i] = rhs.getItem(i)->clone();
+				_inventory[i] = (rhs._inventory[i]->clone());
 			else
 				_inventory[i] = 0;
+			_index++;
 		}
 	}
 	return *this;
@@ -63,16 +72,13 @@ Character &Character::operator=(Character const &rhs)
 
 void Character::equip(AMateria *m)
 {
+	while (_inventory[_index] != 0 && _index < 4)
+		_index++;
 	if (_index < 4)
 	{
-		if (_inventory[_index] != 0)
-		{
-			std::cout << "Inventory : slot " << _index << std::endl;
-		}
 		_inventory[_index] = m;
 		std::cout << "Ability equipped in inventory : slot " << _index << std::endl;
-		while (_index < 4 && _inventory[_index] != 0)
-			_index++;
+		_index = 0;
 	}
 	else
 	{
@@ -81,14 +87,10 @@ void Character::equip(AMateria *m)
 }
 void Character::unequip(int idx)
 {
-	unsigned int i = 0;
-
 	if (idx >= 0 && idx < 4)
 	{
 		_inventory[idx] = 0;
-		for (i = _index + 1; i < 4; i++)
-			_inventory[i] = _inventory[i + 1];
-		_index = idx;
+		_index = 0;
 		std::cout << "Ability unequiped" << std::endl;
 	}
 	else

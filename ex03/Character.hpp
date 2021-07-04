@@ -37,6 +37,7 @@ class Character : public ICharacter
 		AMateria *_inventory[4];
 		unsigned int	_index;
 		std::string		_name;
+		bool			_copy;
 };
 
 #endif /* ******************************************************* CHARACTER_H */

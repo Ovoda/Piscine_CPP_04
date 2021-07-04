@@ -22,8 +22,7 @@ AMateria::AMateria( const AMateria & src ) {
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AMateria::~AMateria()
-{
+AMateria::~AMateria() {
 }
 
 
