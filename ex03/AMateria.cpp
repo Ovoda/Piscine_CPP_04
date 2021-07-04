@@ -5,7 +5,7 @@
 */
 
 AMateria::AMateria( void ) {
-	// Never used;
+	_xp = 0;
 }
 
 AMateria::AMateria( std::string const & type ) {
