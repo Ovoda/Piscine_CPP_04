@@ -42,7 +42,7 @@ int main(void)
     std::cout << std::endl << "Main should have both abilities" << std::endl;
     main.use(0, *bob);
     main.use(1, *bob);
-    std::cout << std::endl << "Main should have only one ability" << std::endl;
+    std::cout << std::endl << "Copy should have only one ability" << std::endl;
     copy.use(0, *bob);
     copy.use(1, *bob);
 

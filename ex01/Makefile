@@ -15,6 +15,8 @@ SRCS		=	AWeapon.cpp			\
 				PowerFist.cpp		\
 				Character.cpp		\
 				Enemy.cpp			\
+				FireGun.cpp			\
+				NinjaDragon.cpp		\
 				main.cpp			\
 
 OBJS		= $(addprefix $(OBJS_PATH),$(SRCS:.cpp=.o))
